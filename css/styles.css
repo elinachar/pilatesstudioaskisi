@@ -1,0 +1,282 @@
+/** Define colors of the page **/
+:root {
+  --cream: #fffff7;
+  /* --green: green;
+  --green: 	#798f8c;
+  --green: #718760; */
+  --green: #8d9f7f;
+  --green-hover: #e2e7df;
+  /* --green-hover: #f0f3ef; */
+}
+
+body {
+  background-color: var(--cream);
+  /* font-family: "Arimo", Georgia, serif; */
+  font-family: "Noto Sans", Georgia, serif;
+}
+
+body p {
+  font-size: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.anchor {
+  padding-top: 95px;
+}
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100px;
+  background-color: var(--cream);
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+#logo-text {
+  font-size: 22px;
+}
+
+.social-media-nav {
+  padding-top: 28px;
+  background-color: var(--cream);
+}
+
+.fa {
+  background: var(--cream);
+  border-color: var(--green);
+  border-style: solid;
+  border-width: 1px;
+  color: var(--green) !important;
+  padding-top: 4px;
+  font-size: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+  background-color: var(--green-hover);
+}
+
+.fa-facebook {
+  padding-top: 5px;
+}
+
+.navbar {
+  margin-top: 94px;
+}
+
+.navbar-default {
+  background-color: var(--cream);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+.navbar-default .navbar-nav>li>a,
+.logo a {
+  color: var(--green); /* letter color of links */
+  font-size: 17px;
+}
+
+/* Bg colour and text colour when active, hovering and focus for the whole navigation bar */
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+  color: var(--green); /* letter color of links */
+  font-size: 17px;
+}
+
+.navbar.navbar-default .navbar-collapse {
+  border-color: var(--green); /* border line inbetween main nav and navbar-collape */
+}
+
+.navbar-default .navbar-toggle {
+  border-color: var(--green);  /* border line of collapse box */
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: var(--green); /* color of 3 horizontal lines */
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: var(--green-hover); /* background-color of collapse box when hover and focus */
+}
+
+.header {
+  color: #435666;
+}
+
+.header-img {
+  width: 100%;
+}
+
+.header-caption {
+  position: absolute;
+  font-size: 1.4em;
+}
+
+#header-caption-photos {
+  bottom: 30%;
+  left: 45%;
+}
+
+#header-caption-contact {
+  bottom: 40%;
+  left: 39%;
+}
+
+.container-about .header-img {
+  width: 50%;
+  text-align: center;
+}
+
+#header-caption-about1 {
+  bottom: 40%;
+  left: 39%;
+}
+
+#header-caption-about2 {
+  bottom: 20%;
+  left: 51%;
+}
+
+/*** Facilities ***/
+.facilites-parallax-1 {
+  background-image: url("../img/reformer-facilities.jpg");
+  /* No repeat of background img */
+  /* background-repeat: no-repeat; */
+  /*Add a background image*/
+  background-attachment: fixed;
+  /*Give the background a fixed position does it not scroll when you scroll*/
+  background-size: cover;
+  /*Have the background cover the entire div section*/
+  /* padding: 10%; */
+  padding-top: 95px;
+  overflow: auto;
+  height: 600px;
+ }
+
+ .facilites-parallax-2 {
+   background-image: url("../img/cadillac.jpg");
+   /* No repeat of background img */
+   /* background-repeat: no-repeat; */
+   /*Add a background image*/
+   background-attachment: fixed;
+   /*Give the background a fixed position does it not scroll when you scroll*/
+   background-size: cover;
+   /*Have the background cover the entire div section*/
+   /* padding: 10%; */
+   /* padding-top: 95px; */
+   overflow: auto;
+   height: 600px;
+  }
+
+/*** ABOUT ***/
+
+.about-img {
+  border-radius: 50%;
+}
+
+.about-intro {
+  margin-top: 55px;
+}
+
+
+/*** FOOTER ***/
+footer {
+  padding: 0px 20px;
+  background-color: var(--green);
+  height: 40px;
+}
+
+.copyright p {
+  font-size: 13px;
+  padding-top: 11px;
+}
+
+.social-media-footer {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.social-media-footer,
+.social-media-footer a {
+  color: var(--cream);
+}
+
+.social-media-footer a {
+  text-decoration: none;
+}
+
+.social-media-footer a:hover {
+  color: var(--green-hover);
+}
+
+@media (min-width: 768px) {
+
+  /* Center nav bar */
+  .navbar-nav{
+    float:none;
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+  }
+
+}
+/* Portrait tablet to landscape and desktop */
+ @media (min-width: 768px) and (max-width: 979px) {
+
+
+ }
+
+
+/* Landscape phones and down */
+ @media (max-width: 767px) {
+    .social-media-nav {
+      padding-top: 0;
+    }
+
+    .navbar {
+      margin-top: 130px;
+    }
+
+    footer {
+      height: auto;
+    }
+
+    .copyright,
+    .social-media-footer {
+      text-align: center;
+    }
+
+    .social-media-footer {
+      padding-top: 0;
+      padding-bottom: 10px;
+    }
+
+ }
+
+
+ /* XS screens (logo 2 lines)*/
+  @media (max-width: 408px) {
+    .logo {
+      height: auto;
+    }
+
+    .navbar {
+      margin-top: 160px;
+    }
+  }
