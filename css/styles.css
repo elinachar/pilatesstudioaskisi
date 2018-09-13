@@ -1,12 +1,21 @@
+/**** All pages ****/
+ * { box-sizing: border-box; }
+
 /** Define colors of the page **/
 :root {
   --cream: #fffff7;
+  /* --cream: #e8ebe5; */
+  --cream: #eaede7;
+  --cream: #ecefea;
   /* --green: green;
   --green: 	#798f8c;
   --green: #718760; */
   --green: #8d9f7f;
   --green-hover: #e2e7df;
   /* --green-hover: #f0f3ef; */
+  --green-hover: #fffff7;
+  --green-hover: #c2caba;
+
 }
 
 body {
@@ -15,17 +24,34 @@ body {
   font-family: "Noto Sans", Georgia, serif;
 }
 
-body p {
+.component {
+  background-color: white;
+}
+
+body p,
+body ul {
   font-size: 15px;
+}
+
+h2,
+h3 {
+  color: var(--green);
+}
+
+h2 {
+  font-size: 23px;
+  margin-top: 10px;
+}
+
+h3 {
+  font-size: 18px;
 }
 
 .text-center {
   text-align: center;
 }
 
-.anchor {
-  padding-top: 95px;
-}
+/*** LOGO ***/
 
 .logo {
   position: fixed;
@@ -57,7 +83,7 @@ body p {
   border-width: 1px;
   color: var(--green) !important;
   padding-top: 4px;
-  font-size: 10px;
+  font-size: 18px;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -74,6 +100,35 @@ body p {
   padding-top: 5px;
 }
 
+/*** NAVBAR ***/
+
+.logo-small {
+  display: none;
+  color: var(--green);
+}
+
+.logo-small #logo-text {
+  font-size: 15px;
+  padding-left: 10px;
+}
+
+.navbar-header a,
+.social-media-nav-small a {
+  text-decoration: none;
+}
+
+.navbar-header a:hover {
+  color: var(--green);
+}
+
+.logo-small img {
+  height: 50px;
+}
+
+.social-media-nav-small {
+  display: none;
+}
+
 .navbar {
   margin-top: 94px;
 }
@@ -82,7 +137,8 @@ body p {
   background-color: var(--cream);
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: none;
+  /* border: none; */
+  border-color: var(--green-hover); /* border line of the nav bar*/
 }
 
 .navbar-default .navbar-nav>li>a,
@@ -115,47 +171,15 @@ body p {
   background-color: var(--green-hover); /* background-color of collapse box when hover and focus */
 }
 
-.header {
-  color: #435666;
+/*** INDEX ****/
+.index-section img {
+  display: none;
 }
 
-.header-img {
-  width: 100%;
-}
-
-.header-caption {
-  position: absolute;
-  font-size: 1.4em;
-}
-
-#header-caption-photos {
-  bottom: 30%;
-  left: 45%;
-}
-
-#header-caption-contact {
-  bottom: 40%;
-  left: 39%;
-}
-
-.container-about .header-img {
-  width: 50%;
-  text-align: center;
-}
-
-#header-caption-about1 {
-  bottom: 40%;
-  left: 39%;
-}
-
-#header-caption-about2 {
-  bottom: 20%;
-  left: 51%;
-}
-
-/*** Facilities ***/
-.facilites-parallax-1 {
-  background-image: url("../img/reformer-facilities.jpg");
+.index-section {
+  /* background: url("../img/contact-background1.jpg") no-repeat center center fixed; */
+  /* background-image: url("../img/contact-background1.jpg"); */
+  background-image: url("../img/index_bkg.jpg");
   /* No repeat of background img */
   /* background-repeat: no-repeat; */
   /*Add a background image*/
@@ -163,43 +187,85 @@ body p {
   /*Give the background a fixed position does it not scroll when you scroll*/
   background-size: cover;
   /*Have the background cover the entire div section*/
-  /* padding: 10%; */
-  padding-top: 95px;
+
+  /* color: white; */
+  /* color: var(--blue); */
+  padding: 10%;
+  padding-top: 144px;
   overflow: auto;
-  height: 600px;
+  height: 1080px;
  }
 
- .facilites-parallax-2 {
-   background-image: url("../img/cadillac.jpg");
-   /* No repeat of background img */
-   /* background-repeat: no-repeat; */
-   /*Add a background image*/
-   background-attachment: fixed;
-   /*Give the background a fixed position does it not scroll when you scroll*/
-   background-size: cover;
-   /*Have the background cover the entire div section*/
-   /* padding: 10%; */
-   /* padding-top: 95px; */
-   overflow: auto;
-   height: 600px;
-  }
-
-/*** ABOUT ***/
-
-.about-img {
-  border-radius: 50%;
+/*** ALL SECTIONS ***/
+.section{
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-
-.about-intro {
+/*** ABOUT PILATES ***/
+.about-pilates-section img {
   margin-top: 55px;
 }
 
+.about-pilates-section ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.about-pilates-section li::before {
+  content: "• ";
+  color: var(--green);
+  font-weight: 700;
+  padding-right: 5px;
+}
+
+/*** FACILITIES ***/
+.facilities-list {
+  background-color: var(--green);
+  color: var(--cream);
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.facilities-list p {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.facilities-list p:first-child {
+  padding-top: 8px;
+}
+
+.facilities-list p:hover {
+  color: white;
+  font-weight: 700;
+  cursor: default;
+}
+
+/*** ABOUT ME ***/
+.about-me-section img {
+  border-radius: 50%;
+}
+
+.about-me-section h3 {
+  margin-top: 55px;
+}
+
+/*** CONTACT ***/
+address span {
+  color: var(--green);
+  padding-right: 10px;
+}
+
+#map {
+  height: 200px;
+}
 
 /*** FOOTER ***/
 footer {
   padding: 0px 20px;
   background-color: var(--green);
-  height: 40px;
 }
 
 .copyright p {
@@ -225,8 +291,17 @@ footer {
   color: var(--green-hover);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
+  .about-me-section h3 {
+    margin-top: 0px;
+  }
 
+  .about-me-section img {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) {
   /* Center nav bar */
   .navbar-nav{
     float:none;
@@ -237,46 +312,79 @@ footer {
 
 }
 /* Portrait tablet to landscape and desktop */
- @media (min-width: 768px) and (max-width: 979px) {
-
-
- }
-
+@media (max-width: 991px) {
+}
 
 /* Landscape phones and down */
- @media (max-width: 767px) {
-    .social-media-nav {
-      padding-top: 0;
-    }
+@media (max-width: 767px) {
 
-    .navbar {
-      margin-top: 130px;
-    }
+  .logo {
+    display: none;
+  }
 
-    footer {
-      height: auto;
-    }
+  .logo-small {
+    display: block;
+  }
 
-    .copyright,
-    .social-media-footer {
-      text-align: center;
-    }
+  .social-media-nav-small {
+    display: block;
+  }
 
-    .social-media-footer {
-      padding-top: 0;
-      padding-bottom: 10px;
-    }
+  .fa {
+    font-size: 17px;
+  }
 
+  .navbar {
+    margin-top: 0px;
+  }
+
+  .index-section {
+    padding-top: 183px;
+  }
+
+  .about-pilates-section img {
+    margin-top: 0px;
+  }
+
+  .about-me-section img {
+    margin-bottom: 10px;
+  }
+
+  .copyright,
+  .social-media-footer {
+    text-align: center;
+  }
+
+  .social-media-footer {
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  .index-section {
+    height: auto;
+    padding: 0;
+    padding-top: 50px;
+  }
+  .index-section img {
+    display: block;
+  }
+
+ .index-section {
+   background: none;
  }
 
+ .facilities-list {
+    width: 278px;
+    height: 278px;
+ }
 
- /* XS screens (logo 2 lines)*/
-  @media (max-width: 408px) {
-    .logo {
-      height: auto;
-    }
+  .facilities-list p {
+    font-size: 9px;
+  }
 
-    .navbar {
-      margin-top: 160px;
-    }
+  .facilities-list p:first-child {
+    padding-top: 4px;;
   }
