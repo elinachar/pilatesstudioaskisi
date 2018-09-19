@@ -2,23 +2,16 @@ $(document).ready(function(){
 
   // Smooth scrolling on single-page
   var $root = $('html, body');
-  $('.navbar-nav a, .navbar-header a, .logo a, .contact-link').click(function() {
+  $('.navbar-nav li a, .navbar-header a, .logo a, .contact-link').click(function() {
     var href = $.attr(this, 'href');
     if (href != undefined && href != '#') {
-      var hLogo, hNavbar, hSocial, offset
-      offset = 50
-      hLogo = $(".logo").height();
-      hNavbar = $(".navbar").height();
-      if (hNavbar < 50) {
-        offset = hLogo + hNavbar;
-      };
+      var offset = top_offset()
       $root.animate({
         scrollTop: $(href).offset().top - offset
       }, 500, function () {
         window.location.hash = href;
       });
-    }
-    return false;
+    };
   });
 
   // Hover effect on Navbar
@@ -36,6 +29,9 @@ $(document).ready(function(){
   //Parallax effect
   // resize the image(s) on page load
   resize_all_parallax();
+
+  // Disable parallax in touch devices
+  touch_screen_disable_parallax();
 
   // Load Photos after page is loaded
   var photoImages= $('.img-for-modal');
@@ -59,12 +55,13 @@ $(document).ready(function(){
 
   // Close the Modal
   $(".modal .close").click(function() {
-    $(".logo, .navbar").show()
-    $('#myModal').hide()
+    $(".navbar").show();
+    show_hide_logo() 
+    $('#myModal').hide();
   })
+
   // Close Modal with Esc key
   $(document).keydown(function(event){
-    console.log("esc")
     if (event.keyCode == 27){
       $('#myModal').fadeOut(500);
       $(".logo, .navbar").show();
@@ -74,7 +71,6 @@ $(document).ready(function(){
   // Next/previous controls
   $(".next").click(function() {
     showSlides(slideIndex += 1);
-
   })
 
   $(".prev").click(function() {
@@ -95,6 +91,18 @@ $(document).ready(function(){
 
 });
 
+// Function for navbar offset
+function top_offset() {
+  var offset = 50;
+  var screenWidth = $(document).width();
+  if (screenWidth >= 768) {
+    var hLogo = $(".logo").height();
+    var hNavbar = $(".navbar").height();
+    offset = hLogo + hNavbar;
+  };
+  return offset
+}
+
 // Parallax effect
 // resize the image(s) on page resize
 $(window).on('resize', function(){
@@ -104,7 +112,7 @@ $(window).on('resize', function(){
 // Parallax effect (https://inkplant.com/code/responsive-parallax-images)
 // keep all of your resize function calls in one place so you don't have to edit them twice (on page load and resize)
 function resize_all_parallax() {
-  var lDivId = ['bkg-1', 'bkg-2', 'bkg-3']; /* the ID of the div that you're resizing */
+  var lDivId = ['index-section', 'bkg-2', 'bkg-3']; /* the ID of the div that you're resizing */
   var lImgW = [1920, 1920, 1477]; /* the width of your image, in pixels */
   var lImgH = [1080, 1080, 831]; /* the height of your image, in pixels */
 
@@ -113,7 +121,7 @@ function resize_all_parallax() {
   };
 }
 
-/* this resizes the parallax image down to an appropriate size for the viewport */
+// this resizes the parallax image down to an appropriate size for the viewport
 function resize_parallax(divId, imgW, imgH) {
 	var div = $('#' + divId);
 	var divWidth = div.width();
@@ -122,6 +130,46 @@ function resize_parallax(divId, imgW, imgH) {
 	var newHeight = Math.round(divWidth * (pct/100));
 	newHeight = newHeight  + 'px';
 	div.height(newHeight);
+}
+
+
+// Function for disabling parallax in touch screens
+function touch_screen_disable_parallax() {
+  if (is_touch_device()) {
+    var offset = top_offset();
+    $(".parallax").css("background-attachment","inherit")
+    $("#index-section").css("margin-top", offset-5);
+  }
+}
+
+// Function for detecting touch device
+function is_touch_device() {
+  var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+  var mq = function(query) {
+    return window.matchMedia(query).matches;
+  }
+
+  if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+    return true;
+  }
+  // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+  // https://git.io/vznFH
+  var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+  return mq(query);
+}
+
+// Modal show/hide LOGO
+$(window).on('resize', function(){
+	show_hide_logo();
+});
+
+function show_hide_logo() {
+  var screenWidth = $(document).width();
+  if (screenWidth >= 769) {
+    $(".logo").show();
+  } else {
+    $(".logo").hide();
+  }
 }
 
 // API Google Map
