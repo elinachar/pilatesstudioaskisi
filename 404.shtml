@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Το PILATESstudio Άσκηση είναι ένα σύγχρονο personal training pilates studio στο Ηράκλειο Κρήτης. Ειδικά μαθήματα για εγκύους και ηλικιωμένους.">
+    <meta name="keywords" content=" πιλάτες ηράκλειο κρήτης, pilates ηράκλειο κρήτης, personal training pilates ηράκλειο, πιλάτες αποκατάσταση, πιλάτες εγκύους">
+    <meta name="image" content="http://pilatesstudioaskisi.gr/img/index.jpg">
+    <meta name="author" content="Τόνια Μανωλακάκη">
+    <title>Pilates Studio Άσκηση | Personal training | Ηράκλειο Κρήτης</title>
+    <!-- <title>Pilates Studio Άσκηση &#8729; Personal training club &#8729; Ορθοσωμική &#8729; Θεραπευτική &#8729; Ηράκλειο Κρήτης</title> -->
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" type="image/png" href="img/favicon_48x48.png"> -->
+    <link rel="shortcut icon" href="http://pilatesstudioaskisi.gr/img/favicon_48x48.png">
+
+    <!-- Canonical -->
+    <!-- <link rel=“canonical” href=“https://pilatesstudioaskisi.gr”> -->
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Google Fonts API -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+
+    <!-- Custom styles for this template go here -->
+    <link rel="stylesheet" href="http://www.pilatesstudioaskisi.gr/css/styles.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container-fluid text-center error-section">
+      <h1>404</h1>
+      <div class="oops">
+        <img class="img-responsive" src="http://pilatesstudioaskisi.gr/img/error_page.png" alt="Pilates with a ball">
+        <p class="centered">Ooops!</p>
+      </div>
+      <p>Your request cannot be found...</p>
+      <a href="http://www.pilatesstudioaskisi.gr"><button>Go to homepage</button></a>
+    </div>
+  </body>

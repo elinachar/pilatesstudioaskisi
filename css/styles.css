@@ -3,64 +3,118 @@
 
 /** Define colors of the page **/
 :root {
-  --cream: #fffff7;
-  /* --cream: #e8ebe5; */
-  --cream: #eaede7;
-  --cream: #ecefea;
-  /* --green: green;
-  --green: 	#798f8c;
-  --green: #718760; */
+  /* earthy colors */
+  /* --cream: #ecefea;
   --green: #8d9f7f;
-  --green-hover: #e2e7df;
-  /* --green-hover: #f0f3ef; */
-  --green-hover: #fffff7;
   --green-hover: #c2caba;
+  --green-hover-text: #626f58;
+  --green-hover-text-footer: #c2caba; */
 
+  /* vivid colors */
+  --cream: #fffff7;
+  --green: #81b541;
+  --green-hover: #e5f0d9;
+  --green-hover-text: #5a7e2d;
+  --green-hover-text-footer: #405a20;
 }
 
 body {
   background-color: var(--cream);
-  /* font-family: "Arimo", Georgia, serif; */
-  font-family: "Noto Sans", Georgia, serif;
+  font-family: "Open Sans", Georgia, serif;
 }
 
 body p,
 body ul {
-  font-size: 15px;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
+body p {
+  text-align: justify;
+}
+
+h1,
 h2,
 h3 {
   color: var(--green);
+  font-weight: 400;
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+h1::first-letter {
+  font-size: 20px;
+  font-weight:
 }
 
 h2 {
-  font-size: 23px;
-  margin-top: 10px;
+  font-size: 17px;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 15px;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 1px;
 }
 
 .text-center {
   text-align: center;
 }
 
-/*** LOGO ***/
+/*** SCROLL ON TOP BUTTON ***/
+#scroll-top-btn {
+  font-family: "Noto Sans", Georgia, serif;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: var(--green); /* Set a background color */
+  color: var(--cream); /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  width: 48px;
+  height: 48px;
+  padding-left: 16px; /* Some padding */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 30px; /* Increase font size */
+  text-decoration: none; /* For not underlined on hover*/
+}
 
+#scroll-top-btn:hover {
+  background-color: var(--green-hover-text-footer);
+}
+
+/*** LOGO ***/
 .logo {
-  position: fixed;
+  position: fixed; /* comment to unfix */
+  z-index: 999; /* comment to unfix */
   top: 0;
   left: 0;
-  z-index: 999;
   width: 100%;
-  height: 100px;
+  /* height: 70px; */
   background-color: var(--cream);
+}
+
+.logo img {
+  height: 70px;
+  margin-top: 10px;
 }
 
 .logo a {
   text-decoration: none;
+}
+
+.logo-grid {
+  padding: 0;
 }
 
 .social-media-nav {
@@ -98,6 +152,23 @@ h3 {
   display: none;
 }
 
+/* Should be at least 48px for touch screens (tap target) and have at least 8px distance */
+.navbar-collapse .social-media-nav-small a {
+  width: 48px;
+  height: 48px;
+  margin: 5px;
+}
+
+/* Should be at least 48px for touch screens (tap target) and have at least 8px distance */
+.navbar-collapse .social-media-nav-small a.fa {
+  font-size: 25px;
+  padding-top: 11px;
+}
+
+.navbar-collapse .navbar-nav a {
+  height: 48px;  /* Should be at least 48px for touch screens (tap target)*/
+}
+
 .navbar-header a,
 .social-media-nav-small a {
   text-decoration: none;
@@ -107,9 +178,9 @@ h3 {
   color: var(--green);
 }
 
-.logo-small img {
-  height: 40px;
-  margin-top: 5px;
+.logo-small {
+  height: 48px; /* Should be at least 48px for touch screens (tap target) */
+  margin-top: 10px;
   margin-left: 10px;
 }
 
@@ -118,21 +189,23 @@ h3 {
 }
 
 .navbar {
-  margin-top: 94px;
+  margin-top: 70px; /* comment to unfix */
+  margin-bottom: 0px;
 }
 
 .navbar-default {
   background-color: var(--cream);
   -webkit-box-shadow: none;
-  box-shadow: none;
-  /* border: none; */
-  border-color: var(--green-hover); /* border line of the nav bar*/
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-bottom-color: var(--green-hover); /* border line of the nav bar*/
+  border-top-color: var(--cream);
 }
 
 .navbar-default .navbar-nav>li>a,
 .logo a {
   color: var(--green); /* letter color of links */
-  font-size: 17px;
+  font-size: 18px;
 }
 
 /* Bg colour and text colour when active, hovering and focus for the whole navigation bar */
@@ -141,14 +214,21 @@ h3 {
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
-  color: var(--green); /* letter color of links */
-  color: #626f58;
-  font-size: 17px;
+  color: var(--green-hover-text); /* letter color of links */
+  font-size: 18px;
   background-color: var(--cream);
 }
 
-.navbar-default .navbar-nav>.active>a {
-  color: #626f58;
+.navbar-default .navbar-nav>.active>a span,
+.navbar-default .navbar-nav>li>a:hover span {
+  display: none;
+}
+
+.navbar-default .navbar-nav>.active>a:before,
+.navbar-default .navbar-nav>.active>a:after,
+.navbar-default .navbar-nav>li>a:hover:before,
+.navbar-default .navbar-nav>li>a:hover:after{
+  content: "\00b7";
 }
 
 .navbar.navbar-default .navbar-collapse {
@@ -156,6 +236,8 @@ h3 {
 }
 
 .navbar-default .navbar-toggle {
+  width: 48px; /* Should be at least 48px for touch screens (tap target) */
+  height: 48px;
   border-color: var(--green);  /* border line of collapse box */
 }
 
@@ -169,7 +251,7 @@ h3 {
 }
 
 /*** ALL SECTIONS ***/
-.section{
+.section {
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -179,66 +261,71 @@ h3 {
 }
 
 /*** INDEX ****/
-#index-section img {
-  display: none;
-}
-
-.parallax {
-  /* No repeat of background img */
-  background-repeat: no-repeat;
-  /*Add a background image*/
-  background-attachment: fixed;
-  /*Give the background a fixed position does it not scroll when you scroll*/
-  /* background-size: cover; */
-  background-size: 100% auto;
-  /*Have the background cover the entire div section*/
-  background-position: center;
-
-  height: 300px;
-}
-
-#index-section {
-  background-image: url("../img/FOTO-3.jpg");
-}
-
-#bkg-2 {
-  background-image: url("../img/FOTO-2.jpg");
-}
-
-#bkg-3 {
-  background-image: url("../img/FOTO-4.jpg");
+.index {
+  position: relative;
+  padding-top: 10px;
+  top: 120px;
 }
 
 /*** MOTO ***/
-#moto-section {
-  background-color: var(--green);
-  opacity: 0.7;
+#typewriter {
+  width: 300px;
 }
 
-#moto-section p {
-  font-size: 18px;
+#moto p {
+  font-size: 20px;
   text-align: center;
-  color: var(--cream);
+  color: black;
+  margin-bottom: 0;
+  text-shadow: 1px 1px 2px #d3c7c1;
 }
 
 /*** ABOUT PILATES ***/
-#about-pilates-section img {
-  margin-top: 55px;
+#about-pilates {
+  margin-top: 110px;
 }
 
-#about-pilates-section ul {
+#about-pilates h1 {
+  font-weight: 700;
+}
+
+#about-pilates ul {
   list-style: none;
   padding-left: 20px;
 }
 
-#about-pilates-section li::before {
+#about-pilates li::before {
   content: "• ";
   color: var(--green);
   font-weight: 700;
   padding-right: 5px;
 }
 
+#about-pilates img {
+  margin-top: 10px;
+}
+
+.moto h3 {
+  color: var(--green);
+  font-size: 22px;
+  margin-top: 10px;
+  letter-spacing: normal;
+}
+
+#about-pilates .moto h3 {
+  margin-bottom: 0;
+}
+
+#about-pilates .moto h3 span {
+  font-weight: 700;
+}
+
 /*** FACILITIES ***/
+#facilities .moto h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .facilities-list {
   background-color: var(--green);
   color: var(--cream);
@@ -246,11 +333,16 @@ h3 {
   height: 380px;
   border-radius: 50%;
   margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .facilities-list p {
+  font-family: "Noto Sans", Georgia, serif;;
+  text-align: center;
   font-size: 13px;
   margin-bottom: 5px;
+  line-height: normal;
 }
 
 .facilities-list p:first-child {
@@ -263,27 +355,35 @@ h3 {
   cursor: default;
 }
 
-/*** ABOUT ME ***/
-#about-me-section img {
+/*** ABOUT US ***/
+#about-us img {
   border-radius: 50%;
 }
 
-#about-me-section h3 {
+#about-us h3 {
   margin-top: 55px;
 }
 
 /*** PHOTOS ***/
 
-#photos-section .row {
+#photos .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding: 0 4px;
 }
 
-#photos-section .row:after {
+#photos .row:after {
   content: "";
   display: table;
   clear: both;
+}
+
+#photos .row:before,
+#photos .row:after {
+  display: inline-block;
 }
 
 .column {
@@ -326,6 +426,7 @@ h3 {
 .modal-content img {
   display:block;
   margin:auto;
+  max-height: 500px;
 }
 
 /* The Close Button */
@@ -363,10 +464,14 @@ h3 {
   color: white;
   font-weight: bold;
   font-size: 20px;
+  -webkit-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  user-select: none;
   -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 a.prev,
@@ -387,22 +492,56 @@ a.next {
 }
 
 img.hover-shadow {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 
 .hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /*** CONTACT ***/
-address span {
+address {
+  font-size: 16px;
+  line-height: 2;
+}
+
+address span,
+#contact span {
   color: var(--green);
   padding-right: 10px;
+}
+
+address::first-line {
+  font-weight: 700;
 }
 
 #map {
   height: 200px;
 }
+
+/*** PARALLAX ***/
+.parallax {
+  /* No repeat of background img */
+  background-repeat: no-repeat;
+  /*Add a background image*/
+  background-attachment: fixed;
+  /*Give the background a fixed position does it not scroll when you scroll*/
+  background-size: 100% auto;
+  height: 300px;
+  background-position:center;
+}
+
+#bkg-1 {
+  background-image: url("../img/parallax_1.jpg");
+}
+
+#bkg-2 {
+  background-image: url("../img/parallax_2.jpg");
+}
+
 
 /*** FOOTER ***/
 footer {
@@ -422,7 +561,8 @@ footer {
 
 .social-media-footer,
 .social-media-footer a {
-  color: var(--cream);
+  /* color: var(--cream); */
+  color: white;
 }
 
 .social-media-footer a {
@@ -430,19 +570,59 @@ footer {
 }
 
 .social-media-footer a:hover {
-  color: var(--green-hover);
+  color: var(--green-hover-text-footer);
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-  #about-me-section h3 {
-    margin-top: 0px;
+/* Error Page 404 */
+.error-section {
+  padding-top: 50px;
+  position: relative;
+}
+
+.error-section h1 {
+  font-size: 30px;
+}
+
+.oops {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.error-section img {
+  margin:auto;
+  width: 300px;
+}
+
+/* Centered text */
+.centered {
+  color: var(--cream);
+  font-size: 25px;
+  position: absolute;
+  top: 53%;
+  left: 50.5%;
+  -webkit-transform: translate(-50%, -50%);
+     -ms-transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%);
+}
+.error-section button {
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 5px;
+}
+
+/*** MEDIA QUERIES ***/
+/* Large devices */
+@media (min-width: 992px) {
+  #moto-section {
+    right: 18%;
   }
 
-  #about-me-section img {
-    margin-top: 20px;
+  #moto-section p {
+    font-size: 25px;
   }
 }
 
+
+/* Medium and Large Devices */
 @media (min-width: 768px) {
   /* Center nav bar */
   .navbar-nav{
@@ -456,11 +636,30 @@ footer {
     display: block;
   }
 
+  #moto-section {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+  }
+
+  #about-pilates img {
+    margin-top: 55px;
+  }
 }
 
-/* Landscape phones and down */
-@media (max-width: 767px) {
+/* Medium devices */
+@media (min-width: 768px) and (max-width: 991px) {
+  #about-us-section h3 {
+    margin-top: 0px;
+  }
 
+  #about-us-section img {
+    margin-top: 20px;
+  }
+}
+
+/* Small and XSmall devices */
+@media (max-width: 767px) {
   .logo {
     display: none;
   }
@@ -481,17 +680,44 @@ footer {
     margin-top: 0px;
   }
 
+  .container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .index {
+    top: auto;
+  }
+
+  #about-pilates {
+    margin-top: auto;
+  }
+
   .parallax {
     background-attachment: inherit;
   }
 
-  #about-pilates-section img {
-    margin-top: 0px;
+  #moto-section p {
+    color: var(--cream);
+    text-shadow: none;
+    background-color: var(--green);
   }
 
+  #typewriter {
+    width: auto;
+  }
 
-  #about-me-section img {
+  #about-pilates img {
     margin-bottom: 10px;
+  }
+
+  #facilities .moto h3 {
+    margin-top: 10px;
+  }
+
+  #about-us img {
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 
   .copyright,
@@ -502,11 +728,18 @@ footer {
   .social-media-footer {
     padding-top: 0;
     padding-bottom: 10px;
+    height: 48px; /* Should be at least 48px for touch screens (tap target) and have at least 8px distance */
+    padding-top: 10px;
+  }
+
+  .social-media-footer a {
+    margin: 5px; /* Should be at least 48px for touch screens (tap target) and have at least 8px distance */
   }
 }
 
-/* Landscape phones and down */
+/* XSmall devices */
 @media (max-width: 480px) {
+
  .facilities-list {
     width: 278px;
     height: 278px;
@@ -518,5 +751,14 @@ footer {
 
   .facilities-list p:first-child {
     padding-top: 4px;;
+  }
+}
+
+/* XXXSmall devices */
+@media (max-width: 350px) {
+  .logo-small {
+    height: 38px; /* Smaller logo for one row design and space to tap menu bar btn */
+    margin-top: 13px;
+    margin-left: 10px;
   }
 }
