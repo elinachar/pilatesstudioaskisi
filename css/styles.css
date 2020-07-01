@@ -42,11 +42,11 @@ h3 {
 
 h1 {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 h1::first-letter {
-  font-size: 20px;
+  font-size: 21px;
   font-weight:
 }
 
@@ -228,7 +228,7 @@ h3 {
 .navbar-default .navbar-nav>.active>a:after,
 .navbar-default .navbar-nav>li>a:hover:before,
 .navbar-default .navbar-nav>li>a:hover:after{
-  content: "\00b7";
+  content: "\00b7 "; /* Should be followed by a space if characters 0-9, a-z, A-Z are following */
 }
 
 .navbar.navbar-default .navbar-collapse {
@@ -693,6 +693,10 @@ footer {
     margin-top: auto;
   }
 
+  #about-pilates h2 {
+    margin-top: 0px;
+  }
+
   .parallax {
     background-attachment: inherit;
   }
@@ -739,6 +743,9 @@ footer {
 
 /* XSmall devices */
 @media (max-width: 480px) {
+  body p {
+    text-align: left;
+  }
 
  .facilities-list {
     width: 278px;
