@@ -212,11 +212,16 @@ h3 {
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:focus {
-  color: var(--green-hover-text); /* letter color of links */
+.navbar-default .navbar-nav>li>a:hover {
   font-size: 18px;
   background-color: var(--cream);
+  color: var(--green-hover-text);
+}
+/* Return to original green when nav link clicked but scrolled to another section
+Clicked nav link is still focused till another nav link is clicked
+but active sections are changing also with scrolling */
+.navbar-default .navbar-nav > li > a:focus {
+  color: var(--green);
 }
 
 .navbar-default .navbar-nav>.active>a span,
@@ -229,6 +234,7 @@ h3 {
 .navbar-default .navbar-nav>li>a:hover:before,
 .navbar-default .navbar-nav>li>a:hover:after{
   content: "\00b7 "; /* Should be followed by a space if characters 0-9, a-z, A-Z are following */
+
 }
 
 .navbar.navbar-default .navbar-collapse {
