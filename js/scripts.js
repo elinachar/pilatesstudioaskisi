@@ -3,15 +3,23 @@ $(document).ready(function(){
   // Smooth scrolling on single-page
   var $root = $('html, body');
   $('.navbar-nav li a, .navbar-header a, .logo a, .contact-link, .scroll-top a ').click(function() {
-    var href = $.attr(this, 'href');
-    if (href != undefined && href != '#') {
-      var offset = top_offset()
+    var hash = $.attr(this, 'href');
+    if (hash != undefined && hash != '#') {
+      var offset = top_offset();
+      isRunningAnimation = true;
       $root.animate({
-        scrollTop: $(href).offset().top - offset
+        scrollTop: $(hash).offset().top - offset
       }, 500, function () {
-        window.location.hash = href;
+        return false; //not update hash on url
       });
     };
+
+    // Close Collapsed navigation-bar when link clicked
+    if ( ($(window).width() <= 767) ) {
+      $(".navbar-collapse").removeClass("in");
+    }
+
+    return false;
   });
 
   // Fix Navbar on top
@@ -176,6 +184,7 @@ function top_offset() {
   };
   return offset
 }
+
 // After document is loaded
 $(window).load(function(){
   // After Google maps have been loaded
@@ -195,7 +204,7 @@ $(window).load(function(){
   };
 });
 
-// Parallax effect
+// PARALLAX EFFECT
 // resize the image(s) on page resize
 $(window).on('resize', function(){
 	resize_all_parallax();
@@ -223,7 +232,6 @@ function resize_parallax(divId, imgW, imgH) {
 	newHeight = newHeight  + 'px';
 	div.height(newHeight);
 }
-
 
 // Function for disabling parallax in touch screens
 function touch_screen_disable_parallax() {
