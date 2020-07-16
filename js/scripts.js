@@ -181,6 +181,8 @@ function top_offset() {
     var hLogo = $(".logo").height();
     var hNavbar = $(".navbar").height();
     offset = hLogo + hNavbar - 10;
+  } else {
+    offset = $(".navbar-collapse").height();
   };
   return offset
 }
